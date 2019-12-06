@@ -15,6 +15,7 @@ permalink: docs/Matlab
 ## 1. Create a data source from a collection of images.
 
 * 데이터 불러오기
+
 ```
 >> data = load('stopSignsAndCars.mat');
 
@@ -23,11 +24,13 @@ permalink: docs/Matlab
 ```
 
 * 파일명 불러오기
+
 ```
 >> imageFilenames = data.stopSignsAndCars.imageFilename(1:2)
 ```
 
 * 파일명 불러오기
+
 ```
 ```
 
@@ -36,7 +39,9 @@ permalink: docs/Matlab
 # RCNN 돌려보기 
 
 ## 1. 학습 with stop sign
+
 * stop stgn 데이터 파일 불러오기
+
 ```습
 >> dataz = load('rcnnStopSigns.mat','stopSigns','layers')
 ```
@@ -47,16 +52,19 @@ permalink: docs/Matlab
 ```
 
 * 학습 option 지정
+
 ```
 >> options = trainingOptions('sgdm','MiniBatchSize',32,'InitialLearnRate',1e-6,'MaxEpochs',10);
 ```
 
 * RCNN 학습 시작 
+
 ```
 >> rcnn = trainRCNNObjectDetector(dataz.stopSigns, dataz.layers,options,'NegativeOverlapRange',[0 0.3])
 ```
 
 * 그냥 진행 -> CPU
+
 ```
 Training on single CPU.
 Initializing input data normalization.
@@ -79,10 +87,10 @@ Network training complete.
 --> Training bounding box regression models for each object class...100.00%...done.
 
 Detector training complete.
-
 ```
 
 * GPU 설정
+
 ```
 >> options = trainingOptions('sgdm','MiniBatchSize',32,'InitialLearnRate',1e-6,'MaxEpochs',10, 'ExecutionEnvironment', 'gpu');
 ```
@@ -90,11 +98,13 @@ Detector training complete.
 ## 2. Inference
 
 * 학습 img 불러오기
+
 ```
 >> img = imread('stopSignTest.jpg');
 >> [bbox,score,label]=detect(rcnn,img,'MiniBatchSize',32); 
 
 ```
+
 * Max score만 display
 
 ```
