@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Utilities
+title: Matlab
 nav_order: 4
 has_children: true
 permalink: docs/Matlab
@@ -9,8 +9,7 @@ permalink: docs/Matlab
  Image Labeling
 {: .no_toc }
 
-## Matlab Documentation (http://taewan.kim)
-
+## Matlab Documentation (http://kr.mathworks.com)
 
 ## 1. Create a data source from a collection of images.
 
@@ -18,9 +17,7 @@ permalink: docs/Matlab
 
 ```
 >> data = load('stopSignsAndCars.mat');
-
 >> data = load('/home/secl00/Desktop/imageLabelingSession.mat')
-
 ```
 
 * 파일명 불러오기
@@ -29,22 +26,17 @@ permalink: docs/Matlab
 >> imageFilenames = data.stopSignsAndCars.imageFilename(1:2)
 ```
 
-* 파일명 불러오기
-
-```
-```
-
-
-
-# RCNN 돌려보기 
+## RCNN 돌려보기 
 
 ## 1. 학습 with stop sign
 
-* stop stgn 데이터 파일 불러오기
+* stop stgn 데이터 파일 load
 
-```습
+```
 >> dataz = load('rcnnStopSigns.mat','stopSigns','layers')
 ```
+
+* matlabroot에 경로 추가
 
 ```
 >> imDir = fullfile(matlabroot,'toolbox','vision','visiondata','stopSignImages');
@@ -63,7 +55,7 @@ permalink: docs/Matlab
 >> rcnn = trainRCNNObjectDetector(dataz.stopSigns, dataz.layers,options,'NegativeOverlapRange',[0 0.3])
 ```
 
-* 그냥 진행 -> CPU
+* CPU 실행
 
 ```
 Training on single CPU.
@@ -89,7 +81,7 @@ Network training complete.
 Detector training complete.
 ```
 
-* GPU 설정
+* GPU 실행 + 설정 추가
 
 ```
 >> options = trainingOptions('sgdm','MiniBatchSize',32,'InitialLearnRate',1e-6,'MaxEpochs',10, 'ExecutionEnvironment', 'gpu');
@@ -102,7 +94,6 @@ Detector training complete.
 ```
 >> img = imread('stopSignTest.jpg');
 >> [bbox,score,label]=detect(rcnn,img,'MiniBatchSize',32); 
-
 ```
 
 * Max score만 display
@@ -114,6 +105,4 @@ Detector training complete.
 >> detectedImg = insertObjectAnnotation(img,'rectangle',bbox,annotation);
 >> figure
 >> imshow(detectedImg)
-
 ```
-
