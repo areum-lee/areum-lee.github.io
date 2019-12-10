@@ -3,7 +3,7 @@ layout: default
 title: 1. Deep Learning
 nav_order: 4
 has_children: true
-permalink: docs/1. Deep Learning
+permalink: docs/1_DeepLearning
 ---
 
  Loss
