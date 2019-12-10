@@ -1,12 +1,11 @@
 ---
 layout: default
-title: 1_Deep_Learning
-nav_order: 4
-has_children: true
-permalink: docs/1_Deep_Learning
+title: Loss Function
+parent: 1_Deep_Learning
+nav_order: 2
 ---
 
- Loss
+ Loss Function
 {: .no_toc }
 
 ## 1. Dice Loss 
@@ -23,7 +22,7 @@ dot_v = torch.dot(output_v,target_v).sum()
 dice_loss = -(2.0 * dot_v + smooth_v) / (output_v.sum() + target_v.sum() + smooth_v)
 ```
 
-return dice_loss
+* return dice_loss
 
 
 ## 2. 

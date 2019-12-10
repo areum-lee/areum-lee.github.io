@@ -1,9 +1,9 @@
 ---
 layout: default
-title: 4_Matlab
-nav_order: 4
-has_children: true
-permalink: docs/4_Matlab
+title: Image Labeling
+parent: 4_Matlab
+nav_order: 1
+
 ---
 
  Image Labeling
