@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Measurement methods
+title: Measurement Methods
 parent: 1_Deep_Learning
 nav_order: 1
 ---
