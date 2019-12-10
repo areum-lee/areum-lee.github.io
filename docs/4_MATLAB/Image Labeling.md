@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Image Labeling
-parent: 4_Matlab
+parent: 4_MATLAB
 nav_order: 1
 
 ---

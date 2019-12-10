@@ -1,8 +1,9 @@
 ---
 layout: default
-title : Deep learning paper lists
-parent: 3_DL_papers
-nav_order: 1
+title: 3_DL_papers
+nav_order: 4
+has_children: true
+permalink: docs/3_DL_papers
 ---
 
  Deep learning paper lists

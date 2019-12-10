@@ -5,7 +5,7 @@ parent: 1_Deep_Learning
 nav_order: 1
 ---
 
- Measurement methods
+ Measurement Methods
 {: .no_toc }
 
 ## 1. Classification 
