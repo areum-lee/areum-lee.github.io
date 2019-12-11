@@ -109,8 +109,8 @@ for jj in range(len(org_path)):
         results_mask = defect_img[lefty:righty , leftx:rightx]
 
         ### save img
-        pathname1=os.path.join('/home/secl00/Data/RT/Data/ti/rt_defect_crop/'+os.path.basename(org_path[jj])[:-4]+'_{0:03d}'.format(i)+'.png')
-        pathname2=os.path.join('/home/secl00/Data/RT/Data/ti/rt_defect_crop/'+os.path.basename(org_path[jj])[:-4]+'_{0:03d}'.format(i)+'_mask.png')
+        pathname1=os.path.join('/home/~/'+os.path.basename(org_path[jj])[:-4]+'_{0:03d}'.format(i)+'.png')
+        pathname2=os.path.join('/home/~/'+os.path.basename(org_path[jj])[:-4]+'_{0:03d}'.format(i)+'_mask.png')
 
         cv2.imwrite(pathname1,results_org)
         cv2.imwrite(pathname2,results_mask)
@@ -120,8 +120,8 @@ for jj in range(len(org_path)):
         mask_ = np.array([cv2.resize(results_mask, (384,384), interpolation = cv2.INTER_NEAREST)])
         org_ = np.array([cv2.resize(results_org,  (384, 384),interpolation = cv2.INTER_LINEAR)])
 
-        org_name = os.path.join('/home/secl00/Data/RT/Data/ti/rt_defect_crop_npy/img/'+os.path.basename(org_path[jj])[:-4]+'_{0:03d}'.format(i)+'.npy')
-        mask_name = os.path.join('/home/secl00/Data/RT/Data/ti/rt_defect_crop_npy/mask/'+os.path.basename(org_path[jj])[:-4]+'_{0:03d}'.format(i)+'.npy')
+        org_name = os.path.join('/home/~/img/'+os.path.basename(org_path[jj])[:-4]+'_{0:03d}'.format(i)+'.npy')
+        mask_name = os.path.join('/home/~/mask/'+os.path.basename(org_path[jj])[:-4]+'_{0:03d}'.format(i)+'.npy')
 
         np.save(org_name, org_.astype(np.float32))
         np.save(mask_name,mask_.astype(np.float32))
@@ -164,8 +164,8 @@ for jj in range(len(org_path)):
             results_mask = defect_img[lefty:righty , leftx:rightx]
 
             ### save img
-            pathname1=os.path.join('/home/secl00/Data/RT/Data/ti/rt_defect_crop/'+os.path.basename(org_path[jj])[:-4]+'_{0:03d}'.format(i)+'.png')
-            pathname2=os.path.join('/home/secl00/Data/RT/Data/ti/rt_defect_crop/'+os.path.basename(org_path[jj])[:-4]+'_{0:03d}'.format(i)+'_mask.png')
+            pathname1=os.path.join('/home/~/'+os.path.basename(org_path[jj])[:-4]+'_{0:03d}'.format(i)+'.png')
+            pathname2=os.path.join('/home/~/'+os.path.basename(org_path[jj])[:-4]+'_{0:03d}'.format(i)+'_mask.png')
 
             cv2.imwrite(pathname1,results_org)
             cv2.imwrite(pathname2,results_mask)
@@ -175,8 +175,8 @@ for jj in range(len(org_path)):
             mask_ = np.array([cv2.resize(results_mask, (384,384), interpolation = cv2.INTER_NEAREST)])
             org_ = np.array([cv2.resize(results_org,  (384, 384),interpolation = cv2.INTER_LINEAR)])
 
-            org_name = os.path.join('/home/secl00/Data/RT/Data/ti/rt_defect_crop_npy/img/'+os.path.basename(org_path[jj])[:-4]+'_{0:03d}'.format(i)+'.npy')
-            mask_name = os.path.join('/home/secl00/Data/RT/Data/ti/rt_defect_crop_npy/mask/'+os.path.basename(org_path[jj])[:-4]+'_{0:03d}'.format(i)+'.npy')
+            org_name = os.path.join('/home/~/img/'+os.path.basename(org_path[jj])[:-4]+'_{0:03d}'.format(i)+'.npy')
+            mask_name = os.path.join('/home/~/mask/'+os.path.basename(org_path[jj])[:-4]+'_{0:03d}'.format(i)+'.npy')
 
             np.save(org_name, org_.astype(np.float32))
             np.save(mask_name,mask_.astype(np.float32))
@@ -217,14 +217,14 @@ for jj in range(len(org_path)):
                     org_ = np.array([cv2.resize(results_org,  (384, 384),interpolation = cv2.INTER_LINEAR)])
 
                 ### save img
-                pathname1=os.path.join('/home/secl00/Data/RT/Data/ti/rt_defect_crop/'+os.path.basename(org_path[jj])[:-4]+'_{0:03d}'.format(i)+'.png')
-                pathname2=os.path.join('/home/secl00/Data/RT/Data/ti/rt_defect_crop/'+os.path.basename(org_path[jj])[:-4]+'_{0:03d}'.format(i)+'_mask.png')
+                pathname1=os.path.join('/home/~/'+os.path.basename(org_path[jj])[:-4]+'_{0:03d}'.format(i)+'.png')
+                pathname2=os.path.join('/home/~/'+os.path.basename(org_path[jj])[:-4]+'_{0:03d}'.format(i)+'_mask.png')
 
                 cv2.imwrite(pathname1,org_[0])
                 cv2.imwrite(pathname2,mask_[0])
 
-                org_name = os.path.join('/home/secl00/Data/RT/Data/ti/rt_defect_crop_npy/img/'+os.path.basename(org_path[jj])[:-4]+'_{0:03d}'.format(i)+'.png')
-                mask_name = os.path.join('/home/secl00/Data/RT/Data/ti/rt_defect_crop_npy/mask/'+os.path.basename(org_path[jj])[:-4]+'_{0:03d}'.format(i)+'_mask.png')
+                org_name = os.path.join('/home/~/img/'+os.path.basename(org_path[jj])[:-4]+'_{0:03d}'.format(i)+'.png')
+                mask_name = os.path.join('/home/~/mask/'+os.path.basename(org_path[jj])[:-4]+'_{0:03d}'.format(i)+'_mask.png')
 
                 np.save(org_name, org_.astype(np.float32))
                 np.save(mask_name,mask_.astype(np.float32))        
@@ -303,13 +303,13 @@ $ python -m visdom.server
 $ train ~~~
 ```
 
-** 알고리즘 튜닝
+* 알고리즘 튜닝
 
-- epoch = 200 -> 300
-- bottleneck layer = 5 -> 4
-- network depth = 4 -> 그대로
-- batch size = 14 -> 그대로
+-- epoch = 200 -> 300
+-- bottleneck layer = 5 -> 4
+-- network depth = 4 -> 그대로
+-- batch size = 14 -> 그대로
 
--- accuracy = 0.04 -> 0.7  (Epoch 80 기준)
+--- accuracy = 0.04 -> 0.7  (Epoch 80 기준)
 
 
