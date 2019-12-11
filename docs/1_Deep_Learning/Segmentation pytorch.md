@@ -306,8 +306,11 @@ $ train ~~~
 * 알고리즘 튜닝
 
 -- epoch = 200 -> 300
+
 -- bottleneck layer = 5 -> 4
+
 -- network depth = 4 -> 그대로
+
 -- batch size = 14 -> 그대로
 
 --- accuracy = 0.04 -> 0.7  (Epoch 80 기준)
