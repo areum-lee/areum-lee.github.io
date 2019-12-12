@@ -305,14 +305,52 @@ $ train ~~~
 
 * 알고리즘 튜닝
 
+-- accuracy = 0.04 -> 0.7  (Epoch 80 기준)
+
+```
 -- epoch = 200 -> 300
-
 -- bottleneck layer = 5 -> 4
-
 -- network depth = 4 -> 그대로
-
 -- batch size = 14 -> 그대로
+```
 
---- accuracy = 0.04 -> 0.7  (Epoch 80 기준)
+
+
+## 3. Inference ver.Pytorch
+
+* Load weights
+
+```
+
+model.eval()
+
+weight_list = ['/home/~/73.pth']
+inferences2={}
+for weight in weight_list:
+    idx = os.path.basename(weight).split('-')[1]
+    model.load_state_dict(torch.load(weight))
+    inferences2.update({idx:inference2(model, test_loader)})
+
+
+sorted_key = sorted(inferences2['73.pth'].keys())
+for sk in sorted_key:
+    print (sk)
+    print(inferences2['73.pth'][sk]['metric']['dice'])
+```
+
+* Measurement - DSC
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
