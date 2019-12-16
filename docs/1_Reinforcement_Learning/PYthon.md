@@ -70,6 +70,44 @@ def reward_(obs_,obs):
         return 0
 ```
 
+-- Build the neural network
+
+```n_inputs = 6 
+n_hidden = 50 
+n_outputs = 3 
+initializer = tf.contrib.layers.variance_scaling_initializer()
+
+learning_rate = 0.001
+
+# Build the neural network
+X_ = tf.placeholder(tf.float64, shape=[None, n_inputs], name="X_")
+hidden = fully_connected(X_, n_hidden, activation_fn=tf.nn.elu, weights_initializer=initializer)
+hidden1 = fully_connected(hidden, n_hidden, activation_fn=tf.nn.elu, weights_initializer=initializer)
+logits = fully_connected(hidden1, n_outputs, activation_fn=None, weights_initializer=initializer)
+outputs = tf.nn.softmax(logits, name="Y_proba")
+
+# Select a random action based on the estimated probabilities
+action = tf.multinomial(tf.log(outputs), num_samples=1,output_dtype=tf.int32)
+
+y=tf.reshape(tf.one_hot(action,depth=3,dtype=tf.float64),[3,1])
+xentropy = tf.nn.sigmoid_cross_entropy_with_logits(labels=y, logits=tf.transpose(logits))
+
+optimizer = tf.train.AdamOptimizer(learning_rate)
+grads_and_vars = optimizer.compute_gradients(xentropy)
+gradients = [grad for grad, variable in grads_and_vars]
+gradient_placeholders = []
+grads_and_vars_feed = []
+for grad, variable in grads_and_vars:
+    gradient_placeholder = tf.placeholder(tf.float64, shape=grad.get_shape())
+    gradient_placeholders.append(gradient_placeholder)
+    grads_and_vars_feed.append((gradient_placeholder, variable))
+
+training_op = optimizer.apply_gradients(grads_and_vars_feed)
+
+init = tf.global_variables_initializer()
+saver = tf.train.Saver()
+```
+
 -- Prediction
 
 ```
