@@ -32,6 +32,28 @@ def alter_coord(action, position, g_coord, dx=0.1, change_nodes=list(range(1,9))
     return g_coorddnj
 ```
 
+```
+action, position, g_coord, dx=0.1, change_nodes=list(range(1,9))
+
+print (g_coord)
+[ 0.   0.   3.   0.   6.   0.   9.   0.   9.1  3.1  9.   6.   9.   9.
+ 12.   9.  15.   9.  18.   9. ]
+
+
+4, pst, np.array([0.0,0,3,0,6,0,9,0,9,3,9,6,9,9,12,9,15,9,18,9]),
+                                          dx=0.1, change_nodes=list(range(1,9))
+
+
+action_val[0][0], pst, g_coord,
+                                          dx=0.1, change_nodes=list(range(1,9))
+
+4, pst, coord, dx=0.1, change_nodes=list(range(1,9))
+
+np.argmax(action_val), pst, g_coord, dx=0.1, change_nodes=list(range(1,9))
+
+```
+
+
 -- FE Model structure
 
 ```
