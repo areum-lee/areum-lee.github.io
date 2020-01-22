@@ -17,7 +17,7 @@ nav_order: 1
 
 ```
 >> data = load('stopSignsAndCars.mat');
->> data = load('/home/secl00/Desktop/imageLabelingSession.mat')
+>> data = load('/home/~/imageLabelingSession.mat')
 ```
 
 * 파일명 불러오기

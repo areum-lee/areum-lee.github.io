@@ -29,6 +29,6 @@ def read_ods(filename, sheet_no=0, header=0):
     return pd.DataFrame({col[header].value:[x.value for x in col[header+1:]]
                         for col in tab.columns()})
 
-df = read_ods(filename='/home/secl00/Documents/db1.ods')
+df = read_ods(filename='/home/~/db1.ods')
 ```
 
