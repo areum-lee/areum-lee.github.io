@@ -35,6 +35,7 @@ df = read_ods(filename='/home/~/db1.ods')
 ## random 뽑기
 
 - 0~4200 사이 숫자 랜덤으로 1개 뽑기
+
 ```
 import numpy as np
 import os, glob
@@ -43,8 +44,8 @@ from numpy.random import randint
 randnum = randint(0, 4200)
 ```
 
-
 - 0~4200 사이 숫자 랜덤으로 2개만 뽑기
+
 ```
 import numpy as np
 import os, glob
